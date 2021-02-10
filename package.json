@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "index.js",
-    "dev": "index.js"  },
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/antonlazurko/nodejs-homework.git"
@@ -20,5 +21,9 @@
   "devDependencies": {
     "nodemon": "^2.0.7"
   },
-  "type":"module"
+  "type": "module",
+  "dependencies": {
+    "uuid": "^8.3.2",
+    "yargs": "^16.2.0"
+  }
 }
