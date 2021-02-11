@@ -3,7 +3,6 @@ import { hideBin } from 'yargs/helpers';
 const argv = yargs(hideBin(process.argv)).argv;
 
 import {
-  contactsPath,
   listContacts,
   getContactById,
   removeContact,

@@ -2,7 +2,7 @@ import * as fs from 'fs/promises';
 import path from 'path';
 import { v4 as uuidv4 } from 'uuid';
 
-export const contactsPath = path.normalize('./db/contacts.json');
+const contactsPath = path.normalize('./db/contacts.json');
 
 export async function listContacts() {
   try {
