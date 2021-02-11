@@ -13,26 +13,39 @@ export async function listContacts() {
     console.log(error);
   }
 }
-// listContacts().then(contacts => console.log(contacts));
 
-export function getContactById(contactId) {
-  return listContacts().then(contacts =>
-    contacts.find(contact => contact.id === contactId),
-  );
-}
-// getContactById(10).then(contact => console.log(contact));
-
-export async function removeContact(contactId) {
+export async function getContactById(contactId) {
   try {
-    const contacts = await listContacts().then(contacts =>
-      contacts.filter(contact => contact.id !== contactId),
+    const contact = await listContacts().then(contacts =>
+      contacts.find(contact => contact.id === contactId),
     );
-    await fs.writeFile(contactsPath, JSON.stringify(contacts));
+    if (contact) {
+      return console.table(contact);
+    }
+    return console.log(`There is no contact with ${contactId} id`);
   } catch (error) {
     console.log(error);
   }
 }
-// removeContact(2);
+
+export async function removeContact(contactId) {
+  try {
+    const contacts = await listContacts().then(contacts =>
+      contacts.map(contact => contact),
+    );
+    const filterdContacts = await listContacts().then(contacts =>
+      contacts.filter(contact => contact.id !== contactId),
+    );
+    if (contacts.length === filterdContacts.length) {
+      return console.log(`There is no contact with "${contactId}" id`);
+    }
+    await fs.writeFile(contactsPath, JSON.stringify(filterdContacts));
+    console.log(`Contact with id "${contactId}" successfully delete`);
+    return console.table(await listContacts());
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 export async function addContact(name, email, phone) {
   const uId = uuidv4();
@@ -41,18 +54,15 @@ export async function addContact(name, email, phone) {
     const contacts = await listContacts().then(contacts =>
       contacts.map(contact => contact),
     );
-    if (contacts.find(contact => contact.id === newContact.id)) {
-      console.log('This contact is available');
-      return;
-    }
     if (contacts.find(contact => contact.name === newContact.name)) {
       console.log('This contact is available');
       return;
     }
     contacts.push(newContact);
     await fs.writeFile(contactsPath, JSON.stringify(contacts));
+    console.log('This contact is successfully adding');
+    return console.table(await listContacts());
   } catch (error) {
     console.log(error);
   }
 }
-// addContact('John Bon Jovi', 'jovi@mail.com', '+234245754756734');
