@@ -1,6 +1,9 @@
 # nodejs-homework
 homework-01
 ----------------------------
+### Reference to task 
++ https://github.com/goitacademy/nodejs-homework/blob/master/homework-01/README.md
+
 ### Получаем и выводим весь список контакстов в виде таблицы (console.table)
 #### node index.js --action="list"
 ![list](screenshots/LIST.png)
