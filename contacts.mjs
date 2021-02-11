@@ -60,7 +60,7 @@ export async function addContact(name, email, phone) {
     }
     contacts.push(newContact);
     await fs.writeFile(contactsPath, JSON.stringify(contacts));
-    console.log('This contact is successfully adding');
+    console.log('This contact is successfully added');
     return console.table(await listContacts());
   } catch (error) {
     console.log(error);
