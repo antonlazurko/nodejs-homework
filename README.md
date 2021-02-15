@@ -1,10 +1,11 @@
 <<<<<<< HEAD
 
 =======
+>>>>>>> 36e4b7a38077fb30544a0848f28725880bb2d2dc
 # nodejs-homework
 homework-01
 ----------------------------
-### Reference to task 
+### Reference to task
 + https://github.com/goitacademy/nodejs-homework/blob/master/homework-01/README.md
 
 ### Получаем и выводим весь список контакстов в виде таблицы (console.table)
@@ -22,4 +23,7 @@ homework-01
 ### Удаляем контакт
 #### node index.js --action="remove" --id=3
 ![remove](screenshots/REMOVE.png)
+<<<<<<< HEAD
 >>>>>>> 01-node-basics
+=======
+>>>>>>> 36e4b7a38077fb30544a0848f28725880bb2d2dc
